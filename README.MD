@@ -16,8 +16,8 @@ Options:
             0 for no error description and 1 for error description
 
 # Installation and Running
-1. Clone this Project
-2. Make Sure Golang is Installed 
-3. Run `$ go run main.go --pretty=1 --verbose=1 check.txt`
+1. Clone this Project.
+2. Make Sure Golang is Installed and Open the root directory of the project.
+3. Run `$ cd src/knowsearch.ml`
 4. Run `$ go mod tidy` in the CLI
-5. Run `$ go run json-validator.go --pretty=1 --verbose=1 check.txt` 
+5. Run `$ go run main.go --pretty=1 --verbose=1 check.txt` 
