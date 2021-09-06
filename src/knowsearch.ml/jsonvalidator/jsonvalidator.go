@@ -50,10 +50,11 @@ func ValidateJSON(content string, verbose int) bool {
 	lineNo := 1
 	charCounter := -1
 	for i := 0; i < len(payload); i++ {
-		//checks for the current line number
+		//checks for the current line number and increments it
 		if payload[i] == 10 {
 			lineNo = lineNo + 1
 		}
+		//we set the counter for quotes depending on the opening and closing quote
 		if payload[i] == '"' {
 			if charCounter == -1 {
 				charCounter = 1
@@ -61,6 +62,7 @@ func ValidateJSON(content string, verbose int) bool {
 				charCounter = -1
 			}
 		}
+		//if we have a character, we check if it is inside quotes or not.
 		if (payload[i] >= 'a' && payload[i] <= 'z') || (payload[i] >= 'A' && payload[i] <= 'Z') {
 			if charCounter == -1 {
 				if verbose == 1 {
@@ -70,6 +72,7 @@ func ValidateJSON(content string, verbose int) bool {
 				return false
 			}
 		}
+		// add to stack for this case. Check if a character comes before the first bracket
 		if payload[i] == '{' {
 			if i != 0 && len(stack) == 0 {
 				if verbose == 1 {
@@ -81,6 +84,7 @@ func ValidateJSON(content string, verbose int) bool {
 			}
 			push(&stack, string(payload[i]))
 		}
+		// pop from the stack and do error check
 		if payload[i] == '}' {
 			if len(stack) <= 0 {
 				if verbose == 1 {
@@ -93,10 +97,12 @@ func ValidateJSON(content string, verbose int) bool {
 			}
 		}
 	}
+	// check if something remains in stack.
 	if len(stack) > 0 {
 		printFileLineError(content, len(content)-1)
 		return false
 	}
+	// if we reach here, this means our text is valid JSON.
 	return true
 }
 
@@ -105,7 +111,7 @@ func CLIExecuter() {
 
 	// declaration of flags
 	// INT type flag for verbose
-	// BOOL type flag for pretty
+	// INT type flag for pretty
 	verbosePtr := flag.Int("verbose", 1, "0 for no error description and 1 for error description")
 	prettyPtr := flag.Int("pretty", 0, "Generate a pretty JSON file from text file")
 
@@ -117,13 +123,6 @@ func CLIExecuter() {
 		fmt.Println("Incorrect Number of Arguments Provided")
 		os.Exit(1)
 	}
-
-	// 1. Check if the file provided exists.
-	// 2. Read the File Provided into a string
-	// 3. Write the Validation Logic
-	// 4. Write the Pretty Logic
-	// 5. Modify as per verbose
-	// 6. Create the file OR Log the errors
 
 	// checks if a file exists
 	fileExist, err := CheckFP(flag.Arg(0))
@@ -141,7 +140,6 @@ func CLIExecuter() {
 		fmt.Println(err)
 	}
 	fileContent := string(fileBytes)
-	// fmt.Println(fileContent)
 
 	// Validate the File Content
 	check := ValidateJSON(fileContent, *verbosePtr)

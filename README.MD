@@ -14,3 +14,10 @@ Options:
             1 for Generating pretty JSON file and 0 for only validation
 2. verbose <br>
             0 for no error description and 1 for error description
+
+# Installation and Running
+1. Clone this Project
+2. Make Sure Golang is Installed 
+3. Run `$ go run main.go --pretty=1 --verbose=1 check.txt`
+4. Run `$ go mod tidy` in the CLI
+5. Run `$ go run json-validator.go --pretty=1 --verbose=1 check.txt` 
