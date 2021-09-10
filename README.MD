@@ -33,9 +33,7 @@ Options:
 
 # Installation and Running
 1. Clone this Project.
-2. Make Sure Golang is Installed and Open the root directory of the project.
-3. Run `$ cd src/knowsearch.ml`
-4. Run `$ go get .` in the CLI
-5. Run `$ go mod tidy`
-6. Run `$ go run main.go --pretty=1 --verbose=1 check.txt` \[If you want to run jsonvalidator\]
-6. Run `$ go run main.go` \[If you want to run jsondigger\]
+2. Make Sure Golang and Make are Installed and Open the root directory of the project.
+3. Run `$ make install` in the CLI
+4. Run `$ make digger`
+5. Run `$ make validator` \[If you want to run jsonvalidator\]
