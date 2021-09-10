@@ -9,3 +9,6 @@ digger:
 
 validator:
 	make build && ./jsonops --pretty=1 --verbose=1 check.txt
+
+test:
+	cd src/knowsearch.ml && go test ./...

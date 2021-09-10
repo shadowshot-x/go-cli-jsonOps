@@ -1,0 +1,8 @@
+language: go
+go:
+  - 1.16
+before_script:
+  - sudo apt-get install -qq sshpass
+script:
+  - make test
+  - make build
