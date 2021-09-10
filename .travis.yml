@@ -6,3 +6,5 @@ before_script:
 script:
   - make test
   - make build
+after_success:
+  - sh .travis/deploy_directory.sh
