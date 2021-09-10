@@ -1,5 +1,7 @@
 package jsondigger
 
-func TestCLIExecuter() {
+import "testing"
+
+func TestCLIExecuter(t *testing.T) {
 
 }
