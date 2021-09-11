@@ -6,6 +6,7 @@ go:
   - 1.16
 before_script:
   - sudo apt-get install -qq sshpass
+  - docker build -f Dockerfile -t shadowshotx/jsoncliops:latest .
 script:
   - make test
   - make build
