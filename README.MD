@@ -9,7 +9,7 @@ I found not much resources on Dynamic JSON Parsing. Even if we use JSON.Unmarsha
 3. The Next Step is it lists out the parsed JSON in an indented fashion to give user an idea of the JSON file.
 4. Next, the User is asked to enter a query and if the query is correct, the value is fetched and shown.
 
-
+Build a CLI Tool to Parse and Query Dynamic JSON in Golang https://betterprogramming.pub/build-a-cli-tool-to-parse-and-query-dynamic-json-in-golang-cc1db72b1e85
 ### Usage
 Usage:  >>> jsondigger
         >>> ./check.json
@@ -21,6 +21,8 @@ Usage:  >>> jsondigger
 3. We will be able to generate a “well-formatted” (indented) JSON file.
 4. We will be using stacks for validation and some string validation
 5. This program must have a “help” option, to know how to use this tool.
+
+https://betterprogramming.pub/build-your-first-golang-cli-tool-for-json-validation-30dd4ff0b963
 
 ### Usage
 Usage:  >>> jsonvalidator 
